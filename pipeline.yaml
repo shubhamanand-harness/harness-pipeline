@@ -1,1 +1,3 @@
 pipeline: my-harness-pipeline
+  steps:
+    - name: Build
