@@ -1,6 +1,6 @@
 service:
   name: test_service
-  identifier: test_file
+  identifier: test_file1
   orgIdentifier: Ng_Pipelines_K8s_Organisations
   projectIdentifier: doNotDeleteShubham
   serviceDefinition:
