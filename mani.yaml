@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: harness-steady-state-repro
+  labels:
+    app: harness-steady-state-repro
+spec:
+  replicas: 1
+  progressDeadlineSeconds: 900
+  selector:
+    matchLabels:
+      app: harness-steady-state-repro
+  template:
+    metadata:
+      labels:
+        app: harness-steady-state-repro
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.27-alpine
+          readinessProbe:
+            exec:
+              command:
+                - sh
+                - -c
+                - exit 1
+            initialDelaySeconds: 2
+            periodSeconds: 5
+            failureThreshold: 1
